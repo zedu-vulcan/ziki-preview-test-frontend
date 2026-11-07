@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const INITIAL_TASKS = [
   { id: 1, title: 'Set up the preview environment', done: true },
-  { id: 2, title: 'Open a test pull request', done: false },
+  { id: 2, title: 'Open a test pull request', done: true },
   { id: 3, title: 'Check the preview link', done: false },
 ]
 
@@ -20,6 +20,7 @@ export default function App() {
     <main className="app">
       <h1>Ziki Preview Test</h1>
       <p className="subtitle">Mock demo. Tasks are sample data and reset on reload.</p>
+      <p className="subtitle">Preview build: test pull request 1, first commit.</p>
 
       <p className="progress">
         {doneCount} of {tasks.length} done
