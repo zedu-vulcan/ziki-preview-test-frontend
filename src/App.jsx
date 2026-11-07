@@ -20,7 +20,7 @@ export default function App() {
     <main className="app">
       <h1>Ziki Preview Test</h1>
       <p className="subtitle">Mock demo. Tasks are sample data and reset on reload.</p>
-      <p className="subtitle">Preview build: test pull request 1, first commit.</p>
+      <p className="subtitle">Preview build: test pull request 1, second commit (first Pages build).</p>
 
       <p className="progress">
         {doneCount} of {tasks.length} done
