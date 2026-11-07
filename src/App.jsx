@@ -8,6 +8,7 @@ const INITIAL_TASKS = [
 
 export default function App() {
   const [tasks, setTasks] = useState(INITIAL_TASKS)
+  const [hideDone, setHideDone] = useState(false)
 
   const toggle = (id) =>
     setTasks((current) =>
@@ -15,6 +16,7 @@ export default function App() {
     )
 
   const doneCount = tasks.filter((task) => task.done).length
+  const visibleTasks = hideDone ? tasks.filter((task) => !task.done) : tasks
 
   return (
     <main className="app">
@@ -22,12 +24,22 @@ export default function App() {
       <p className="subtitle">Mock demo. Tasks are sample data and reset on reload.</p>
       <p className="subtitle">Merged from test pull request 2.</p>
 
-      <p className="progress">
-        {doneCount} of {tasks.length} done
-      </p>
+      <div className="toolbar">
+        <p className="progress">
+          {doneCount} of {tasks.length} done
+        </p>
+        <label className="filter">
+          <input
+            type="checkbox"
+            checked={hideDone}
+            onChange={(event) => setHideDone(event.target.checked)}
+          />
+          Hide completed
+        </label>
+      </div>
 
       <ul className="tasks">
-        {tasks.map((task) => (
+        {visibleTasks.map((task) => (
           <li key={task.id}>
             <label className={task.done ? 'done' : undefined}>
               <input type="checkbox" checked={task.done} onChange={() => toggle(task.id)} />
