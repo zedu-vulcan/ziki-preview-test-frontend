@@ -44,7 +44,8 @@ h1 {
   cursor: pointer;
 }
 
-.tasks .done {
+/* Fade only the title: fading the whole label took a ticked checkbox below 3:1 contrast. */
+.tasks .done .task-title {
   text-decoration: line-through;
   opacity: 0.6;
 }

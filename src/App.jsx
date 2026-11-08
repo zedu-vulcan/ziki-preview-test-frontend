@@ -31,7 +31,7 @@ export default function App() {
           <li key={task.id}>
             <label className={task.done ? 'done' : undefined}>
               <input type="checkbox" checked={task.done} onChange={() => toggle(task.id)} />
-              {task.title}
+              <span className="task-title">{task.title}</span>
             </label>
           </li>
         ))}
